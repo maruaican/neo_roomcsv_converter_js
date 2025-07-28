@@ -1,0 +1,192 @@
+/* --- Modern Clean スタイル (v3) --- */
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+margin: 0;
+padding: 40px 20px;
+background-color: #eef2f6; /* 優しいブルーグレー */
+color: #333;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+min-height: 100vh;
+box-sizing: border-box;
+}
+.container {
+background-color: #ffffff;
+padding: 30px;
+border-radius: 10px; /* 適度な角丸 */
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* 柔らかい影 */
+text-align: center; /* コンテナ内のインライン要素やテキストをセンタリング */
+max-width: 550px;
+width: 100%;
+box-sizing: border-box;
+position: relative; /* 子要素のabsolute配置の基準とする */
+}
+h1 {
+color: #2c3e50; /* ダークブルー */
+margin-bottom: 15px;
+font-size: 2.2em;
+font-weight: 700;
+}
+p {
+color: #555;
+margin-bottom: 20px;
+font-size: 1.1em;
+}
+/* ファイルアップロードエリア */
+.file-upload-wrapper {
+margin-bottom: 20px;
+padding: 25px; /* 領域を広めに */
+border: 2px dashed #bdc3c7; /* クールなグレーの点線 */
+border-radius: 8px;
+background-color: #e9eeff; /* ほぼ白 */
+transition: border-color 0.3s ease, background-color 0.3s ease; /* ホバーアニメーション */
+}
+/* ドラッグ中のスタイル */
+.file-upload-wrapper.drag-over {
+border-color: #3498db; /* ホバーで青く */
+background-color: #b3e5fc !important; /* 少し濃いめのブルー (デバッグ用) */
+}
+.file-upload-wrapper input[type="file"] {
+display: none;
+}
+/* カスタムファイル選択ボタン */
+.custom-file-upload {
+display: inline-block;
+background-color: #2698e4; /* 標準的な青 */
+color: white;
+padding: 12px 25px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+font-size: 1.1em;
+font-weight: 600;
+}
+.custom-file-upload:hover {
+background-color: #3656b6; /* ホバーで濃く */
+}
+#fileNameDisplay {
+margin-top: 15px;
+font-size: 0.95em;
+color: #666;
+min-height: 1.2em;
+font-style: italic;
+}
+#processingMessage {
+margin-top: 15px;
+color: #e67e22; /* オレンジ系 */
+font-weight: bold;
+min-height: 1.2em;
+display: none;
+animation: pulse 1.5s infinite; /* 処理中アニメーション */
+}
+@keyframes pulse {
+0% { opacity: 1; }
+50% { opacity: 0.5; }
+100% { opacity: 1; }
+}
+/* 出力エリア */
+#output {
+margin-top: 30px;
+padding-top: 20px;
+border-top: 1px solid #eee;
+text-align: center; /* コンテンツ（テキスト、インライン、インラインブロック）を中央寄せ */
+}
+#output h2 {
+color: #51db8b; /* エメラルドグリーン */
+font-size: 1.6em;
+margin-bottom: 15px;
+font-weight: 700;
+/* センタリングのため */
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+#output p {
+color: #333;
+margin-bottom: 10px;
+line-height: 1.5;
+}
+#output .error-message {
+color: #e74c3c; /* 赤 */
+font-weight: bold;
+}
+/* ダウンロードリンク (JS生成) */
+#output a {
+display: inline-block; /* インラインブロック要素として扱い、中央揃えの対象にする */
+background-color: #1abc9c; /* ターコイズ系グリーン */
+color: white;
+padding: 12px 25px;
+border-radius: 5px;
+text-decoration: none;
+margin-top: 20px;
+transition: background-color 0.3s ease;
+font-size: 1.1em;
+font-weight: 600;
+}
+#output a:hover {
+background-color: #16a085; /* ホバーで濃く */
+}
+
+/* ライセンスボタン */
+#showLicenseButton {
+margin-top: 20px;
+padding: 10px 20px;
+background-color: #dbdcdd; /* 淡い青 */
+color: #333;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1em;
+transition: background-color 0.3s ease; /* ホバーアニメーション */
+}
+#showLicenseButton:hover {
+background-color: #81d4fa; /* ホバーで濃く */
+}
+
+/* モーダルウィンドウのスタイル */
+#licenseModal {
+display: none;
+position: absolute;
+z-index: 1;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+width: 90%;
+max-width: 333px;
+background-color: #fefefe;
+padding: 20px;
+border: 1px solid #888;
+border-radius: 10px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+font-size: 1.0em;
+box-sizing: border-box;
+overflow-y: auto;
+max-height: 80%;
+}
+
+#modalTitle {
+margin-top: 0;
+color: #2c3e50;
+font-size: 1.4em;
+}
+
+#modalContent {
+white-space: pre-wrap;
+text-align: left;
+max-height: 300px;
+overflow-y: auto;
+font-size: 1.0em;
+}
+
+#closeModalButton {
+margin-top: 20px;
+padding: 10px 20px;
+background-color: #bdc3c7;
+color: #333;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1.0em;
+}
